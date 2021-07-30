@@ -6,20 +6,15 @@ module.exports.dataFormateOfDatas = async (req, res) => {
     try {
         const mergeUserData = await userModel.findOne({ cityId: commonCityId });
         const mergeCityData = await cityModel.findOne({ cityid: commonCityId });
-        const mergeData = {
+        return res.status(200).send({
+            status: 200,
             name: mergeUserData.userName,
             email: mergeUserData.email,
             age: mergeUserData.age,
-            cityId: mergeUserData.cityId,
-            city: [{
+            city: {
                 cityName: mergeCityData.cityName,
                 cityid: mergeCityData.cityid
-            }]
-        };
-        console.log(mergeData);
-        return res.status(200).send({
-            message: mergeData,
-            status: 200
+            }
         });
     }catch(err){
         console.log(err);

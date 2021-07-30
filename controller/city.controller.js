@@ -1,9 +1,8 @@
 const cityModel = require('../models/city.model');
 
 module.exports.collectionOfCity = async (req, res) => {
-    const { cityName, cityid } = req.body;
+    const { cityName } = req.body;
     console.log(req.body);
-    const numberofCities = await cityModel.find();
     try {
         const existingCity = await cityModel.findOne({ cityName: cityName });
         if (existingCity) {
@@ -13,8 +12,7 @@ module.exports.collectionOfCity = async (req, res) => {
             });
         } else {
             const newCityCollection = await new cityModel({
-                cityName: cityName,
-                cityid: numberofCities.length + 1
+                cityName: cityName
             });
             const saveCitiesCollections = await newCityCollection.save();
             console.log(saveCitiesCollections);

@@ -3,10 +3,6 @@ const citySchema = mongoose.Schema({
     cityName: {
         type: String,
         require: true
-    },
-    cityid: {
-        type: Number,
-        require: true
     }
 });
 

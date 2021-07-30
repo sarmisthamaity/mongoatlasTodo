@@ -31,10 +31,7 @@ module.exports.usersData = async (req, res) => {
             .max(99)
             .required(),
         cityId: Joi.
-            number()
-            .integer()
-            .max(100)
-            .min(1)
+            string()
     });
     const joiUserDataValidate = joiSchema.validate(req.body);
     if (joiUserDataValidate.error) {
@@ -61,7 +58,7 @@ module.exports.usersData = async (req, res) => {
                 email: email,
                 password: hashPassword,
                 age: age,
-                cityId: lengthOfDatas.length + 1
+                cityId: cityId
             });
             const saveNewUser = await newUsers.save();
             console.log(saveNewUser);

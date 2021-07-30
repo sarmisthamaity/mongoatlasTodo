@@ -8,9 +8,9 @@ mongoose.connect(dbUrl, {
     useFindAndModify: false,
     useUnifiedTopology: true
 }).then(() => {
-    console.log(`dataBase connected succesfully! `);
+    console.log(`Successfully Established Connection with MongoDB`);
 }).catch((err) => {
-    console.log(`message: ${err}`);
+    console.log(`Failed to Establish Connection with MongoDB with Error: ${err.message}`);
 });
 
 module.exports = mongoose;
