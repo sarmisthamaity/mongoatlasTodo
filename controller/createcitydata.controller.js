@@ -4,7 +4,10 @@ module.exports.collectionOfCity = async (req, res) => {
     const { cityName } = req.body;
     console.log(req.body);
     try {
-        const existingCity = await cityModel.findOne({ cityName: cityName });
+        const existingCity = await cityModel
+            .findOne({
+                cityName: cityName
+            });
         if (existingCity) {
             return res.status(202).send({
                 message: existingCity,
@@ -29,6 +32,3 @@ module.exports.collectionOfCity = async (req, res) => {
         });
     };
 };
-
-
-// module.exports = collectionOfCity;

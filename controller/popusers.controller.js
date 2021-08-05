@@ -16,4 +16,3 @@ module.exports.userCityDetails = async (req, res) => {
         res.send(err);
     };
 };
-

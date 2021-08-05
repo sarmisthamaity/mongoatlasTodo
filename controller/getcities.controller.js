@@ -5,8 +5,8 @@ module.exports.getNumberOfCities = async (req, res) => {
         const totalNumberOfTowns = await cityModel.find();
         console.log(totalNumberOfTowns);
         return res.status(200).send({
-            message: totalNumberOfTowns,
-            status: 200
+            status: 200,
+            message: totalNumberOfTowns
         })
     } catch (err) {
         console.log(err);
